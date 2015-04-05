@@ -1,4 +1,4 @@
-<?php namespace App;
+<?php namespace TeachMe;
 
 use Illuminate\Database\Eloquent\Model;
 

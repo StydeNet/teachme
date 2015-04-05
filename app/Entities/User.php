@@ -1,4 +1,4 @@
-<?php namespace App\Entities;
+<?php namespace TeachMe\Entities;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
