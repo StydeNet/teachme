@@ -3,8 +3,8 @@
 
 use TeachMe\Entities\Ticket;
 
-class TicketTableSeeder extends BaseSeeder {
-
+class TicketTableSeeder extends BaseSeeder
+{
     public function getModel()
     {
         return new Ticket();
@@ -15,12 +15,7 @@ class TicketTableSeeder extends BaseSeeder {
         return [
             'title'   => $faker->sentence(),
             'status'  => $faker->randomElement(['open', 'open', 'closed']),
-            'user_id' => $this->getRandom('User')->id
+            'user_id' => $this->getRandom('User')->id,
         ];
-    }
-
-    public function run()
-    {
-        $this->createMultiple(50);
     }
 }

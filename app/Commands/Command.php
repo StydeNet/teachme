@@ -1,7 +1,8 @@
-<?php namespace TeachMe\Commands;
+<?php
 
-abstract class Command {
+namespace TeachMe\Commands;
 
-	//
-
+abstract class Command
+{
+    //
 }

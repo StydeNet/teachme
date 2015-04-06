@@ -2,10 +2,9 @@
 
 use Faker\Generator;
 use TeachMe\Entities\User;
-use Faker\Factory as Faker;
 
-class UserTableSeeder extends BaseSeeder {
-
+class UserTableSeeder extends BaseSeeder
+{
     public function getModel()
     {
         return new User();
@@ -16,7 +15,7 @@ class UserTableSeeder extends BaseSeeder {
         return [
             'name' => $faker->name,
             'email' => $faker->email,
-            'password'  => bcrypt('secret')
+            'password'  => bcrypt('secret'),
         ];
     }
 
@@ -31,8 +30,7 @@ class UserTableSeeder extends BaseSeeder {
         $this->create([
             'name' => 'Duilio Palacios',
             'email' => 'i@duilio.me',
-            'password' => bcrypt('admin')
+            'password' => bcrypt('admin'),
         ]);
     }
-
 }
