@@ -1,0 +1,182 @@
+// *
+// * Hoisin.scss
+// * Mixins library
+// *
+// * Vendor prefixes are handled by a prefixer mixin (thanks @HugoGiraudel),
+// * All mixins have the most optimized options for vendor prefixes, but can
+// * be specified if necessary
+// *
+
+
+
+// * Box shadow
+// * @param $value ($h-offset $v-offset $blur $spread $color | inset | initial | inherit);
+// *
+// * @include box-shadow(2px 2px 2px 2px rgba(0,0,0,0.2));
+// *
+@mixin box-shadow($value: 0 0 4px 0 rgba(0, 0, 0, .5)) {
+  @include prefixer(box-shadow, $value, webkit);
+}
+
+
+
+// * Two colors vertical linear gradient
+// * @param $value ($initial-color);
+// * @param $value ($final-color);
+// *
+// * @include gradients(#FF0, #F00);
+// *
+@mixin gradients($first, $second) {
+  background-color: $first;
+  background-image: -o-linear-gradient(top, $first 0%, $second 100%);
+  background-image: -ms-linear-gradient(top, $first 0%, $second 100%);
+  background-image: -moz-linear-gradient(top, $first, $second);
+  background-image: -webkit-gradient(linear, left top, left bottom, from($first), to($second));
+  background-image: linear-gradient(top, $first 0%, $second 100%);
+}
+
+
+
+// * Box model (defaults to border-box)
+// * @param $type ($box-model);
+// *
+// * @include box-sizing;
+// *
+@mixin box-sizing($type: border-box) {
+  @include prefixer(box-sizing, $type, moz webkit);
+}
+
+
+
+// * Opacity (Old IE disabled by default)
+// * @param $opac ($opacity);
+// * @param $ie (true);
+// *
+// * @include opacity(0.7, true);
+// *
+@mixin opacity($opac, $ie: false) {
+  @if $ie {
+    filter: alpha(opacity=$opac * 100);
+    -ms-filter: alpha(opacity=$opac * 100);
+  }
+  opacity: $opac;
+}
+
+
+
+// * Transition (defaults to .15 sec)
+// * @param $value ($speed | $property | $easing);
+// *
+// * @include transition(height 200ms ease-out);
+// *
+@mixin transition($value: .15s) {
+  @include prefixer(transition, $value, webkit);
+}
+
+@mixin ctransition($property: 'all', $duration: 160ms, $timing-funtion: linear) {
+    @include prefixer(transition-property, unquote($property));
+    @include prefixer(transition-duration, $duration);
+    @include prefixer(transition-timing-function, $timing-funtion);
+}
+
+@mixin bgrgba($c, $o) {
+    $r: red($c);
+    $g: green($c);
+    $b: blue($c);
+    background: rgba($r, $g, $b, $o);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#{ie-hex-str(rgba($r, $g, $b, $o))}', endColorstr='#{ie-hex-str(rgba($r, $g, $b, $o))}');
+}
+
+// * Rotate (Origin defaults to center of element)
+// * @param $deg ($degrees);
+// * @param $orig ($h-origin $v-origin);
+// *
+// * @include rotate(45deg);
+// *
+@mixin rotate($deg, $orig: 50% 50%) {
+  @include prefixer(transform, rotate(#{$deg}), webkit ms);
+  @if $orig != 50% and $orig != (50% 50%) 
+  and $orig != center and $orig != (center center) {
+    @include prefixer(transform-origin, $orig, webkit ms);
+  }
+}
+
+
+
+// * Animation (defaults to .15 sec)
+// * @param $options ($animation-name $duration | $iteration);
+// *
+// * @include animation(myanimation 2s 3);
+// *
+@mixin animation($options) {
+  @include prefixer(animation, $options);
+}
+
+
+
+// * Placeholder text color
+// * @param $color ($color);
+// *
+// * @include placeholder(#999);
+// *
+@mixin placeholder($color) {
+  &::-webkit-input-placeholder {
+    color: $color;
+  }
+
+  &:-moz-placeholder {
+    color: $color; 
+  }
+
+  &:-ms-input-placeholder {
+    color: $color;
+  }
+}
+
+
+// * Disallow user selection
+// *
+// * @include noselect;
+// *
+@mixin noselect {
+  -webkit-touch-callout: none;
+  @include prefixer(user-select, none, webkit ms);
+}
+
+
+
+// * Border radius
+// * @param $radius ($radius);
+// *
+// * @include radius(5px);
+// *
+// * This mixin is deprecated, will be removed in future versions
+@mixin radius($radius) { 
+  @include prefixer(border-radius, $radius);
+} 
+
+
+
+// * Prefixer
+// * @param $property ($name);
+// * @param $value ($value);
+// * @param $prefixes (webkit | moz | ms | o);
+// *
+// * @include prefixer(animation, $options);
+// *
+@mixin prefixer($property, $value, $prefixes: webkit moz ms o) {
+  @each $prefix in $prefixes {
+    #{'-' + $prefix + '-' + $property}: #{$value};
+  }
+  #{$property}: #{$value};
+}
+
+@mixin transition-custom($property: all, $duration: 160ms, $timing-function: linear) {
+@include prefixer(transition-property, unquote($property));
+@include prefixer(transition-duration, $duration);
+@include prefixer(transition-timing-function, $timing-function);
+}
+
+@mixin set-transition-delay($delay) {
+@include prefixer(transition-delay, unquote($delay));
+}

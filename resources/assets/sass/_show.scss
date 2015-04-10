@@ -1,0 +1,17 @@
+//--- show
+h2.title-show{
+  position: relative;
+  padding-right : 100px;
+  .label.label-info.absolute{
+    font-size: 16px;
+    position: absolute;
+    float : right;
+    right : 0;
+    top : 10px;
+    padding : 7px 15px;
+  }
+}
+
+.vote-users{
+   margin-bottom : 24px;
+}

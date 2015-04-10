@@ -1,0 +1,77 @@
+//--- home
+
+
+.form{
+
+    ::-webkit-input-placeholder {
+       color: #444;
+    }
+
+    :-moz-placeholder { /* Firefox 18- */
+       color: #444;  
+    }
+
+    ::-moz-placeholder {  /* Firefox 19+ */
+       color: #444;  
+    }
+
+    :-ms-input-placeholder {  
+       color: #444; 
+    }
+
+	display: inline-block;
+   input{
+   	height : 35px;
+   }
+   input[type="text"], input[type="email"], input[type="password"], select, textarea{
+      width : 100%;
+      border : 0;
+      background: #d4d4d4;
+      padding : 2px 6px;
+      margin-bottom: 10px;
+      color : #000;
+      &:focus{
+        outline: 0;
+      }
+   }
+   label{
+   	  font-weight: normal;
+   }
+}
+
+
+.btn{
+	 @include radius(5px);
+	 @include transition(all linear 0.15s);
+	 border : 0;
+	 height : 35px;
+
+	    background: $azul;
+	    color : $white;
+      border-bottom: solid 3px darken($azul, 9%);
+	    &:hover{
+	       background-color : darken($azul, 7%);
+         border-bottom: solid 3px darken($azul, 13%);
+		    }
+
+
+    &.btn-hight{
+	    background: $naranja;
+	    color : $white;
+      border-bottom: solid 3px darken($naranja, 9%);
+	    &:hover{
+	       background-color : darken($naranja, 7%);
+         border-bottom: solid 3px darken($naranja, 13%);
+		}
+
+    }
+    &.btn-soft{
+	    background: $azul;
+	    color : $white;
+	    &:hover{
+	       background-color : darken($azul, 7%);
+		}
+
+    }
+} 
+

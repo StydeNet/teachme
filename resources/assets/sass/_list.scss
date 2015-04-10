@@ -1,0 +1,69 @@
+//--- list
+
+.well{
+   border : 0;
+   border-bottom : dotted 1px #ccc;
+   background : none;
+   @include box-shadow(none);
+   padding : 2px 0 20px 0;
+   &:first-of-type{
+      padding-top : 20px;
+      border-top: dotted 1px #ccc;
+   }
+   h4.list-title{
+      margin : 5px 0 20px 0;
+      line-height: 170%;
+   }
+
+}
+
+.list-title{
+   @include box-sizing();
+   padding-right : 90px;
+   position: relative;
+   .label.label-info.absolute{
+       position: absolute;
+       float : right;
+       right : 0;
+    }
+}
+
+.label.label-info{
+   font-weight: normal;
+   background : #9f9f9f;
+   &.news{
+      background : $naranja;
+      display: inline-block;
+      margin-bottom : 20px;
+      padding : 6px 12px;
+   }
+   &.highlight{
+      background : $naranja;
+   }
+}
+
+.date-t{
+   color : #878787;
+   font-size: 14px;
+}
+
+.comments-count, .votes-count, .btn-unvote{
+  font-size: 14px;
+}
+
+.votes-count{
+   padding-left: 10px;
+}
+
+.btn-unvote{
+   color : $rojo;
+   &:hover{
+      color : $rojo;
+   }
+}
+
+@media (max-width: 790px) {
+  .row{
+    margin : 0 !important;
+  }
+}

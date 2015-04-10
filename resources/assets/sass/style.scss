@@ -1,0 +1,82 @@
+
+@import 'bootstrap/bootstrap';
+@import 'vars';
+@import 'mixins';
+
+
+body {
+  padding-top: 0px !important;
+  font-size: 16px;
+  line-height: 170%;
+  font-family: $body-font; 
+  color : $text;
+}
+
+.center-block{
+   float : none;
+}
+
+.right{
+  float : right;
+}
+
+h1{
+  font-family: $title-font;
+  font-size: 32px;
+  margin : 40px 0;
+}
+
+h2{
+  font-family: $title-font;
+  font-size: 26px;
+  line-height: 160%;
+  margin : 20px 0;
+
+}
+
+h3{
+   font-family: $title-font;
+   font-size: 18px;
+   margin : 20px 0;
+}
+
+.navbar.navbar-default{
+  background: #fff;
+  .navbar-nav{
+       a{
+          @include transition();
+       }
+      .active a{
+         background: #fff;
+         @include box-shadow(inset 0px -4px 0px #e9e9e9);
+      }
+  }
+  .collapse.navbar-collapse{
+     padding : 0;
+  }
+  .navbar-nav.navbar-right{
+     margin-right : -20px;
+  }
+}
+
+
+
+.navbar-header{
+    .navbar-brand{
+       width : 160px;
+       height : 50px;
+       padding : 0;
+       text-indent: -9999px;
+       background : url("../img/laravel_logo.png") no-repeat;
+       background-size: auto 50px;
+       -webkit-background-size: auto 50px;
+    }
+}
+
+
+@import 'list';
+@import 'show';
+@import 'forms';
+
+
+
