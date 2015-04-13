@@ -11,8 +11,7 @@ class TicketsController extends Controller {
 	public function latest()
     {
         $tickets = Ticket::orderBy('created_at', 'DESC')->paginate(20);
-        $title = 'Solicitudes recientes';
-        return view('tickets/list', compact('tickets', 'title'));
+        return view('tickets/list', compact('tickets'));
     }
 
     public function popular()
@@ -23,15 +22,13 @@ class TicketsController extends Controller {
     public function open()
     {
         $tickets = Ticket::where('status', 'open')->orderBy('created_at', 'DESC')->paginate(20);
-        $title = 'Solicitudes abiertas';
-        return view('tickets/list', compact('tickets', 'title'));
+        return view('tickets/list', compact('tickets'));
     }
 
     public function closed()
     {
         $tickets = Ticket::where('status', 'closed')->orderBy('created_at', 'DESC')->paginate(20);
-        $title = 'Tutoriales';
-        return view('tickets/list', compact('tickets', 'title'));
+        return view('tickets/list', compact('tickets'));
     }
 
     public function details($id)
