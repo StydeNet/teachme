@@ -33,3 +33,12 @@ Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
 ]);
+
+Route::group(['middleware' => 'auth'], function () {
+
+    Route::get('/solicitar', [
+        'as'   => 'tickets.create',
+        'uses' => 'TicketsController@create'
+    ]);
+
+});
