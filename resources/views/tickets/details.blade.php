@@ -11,6 +11,7 @@
             </h2>
             <p class="date-t">
                 <span class="glyphicon glyphicon-time"></span> {{ $ticket->created_at->format('d/m/y h:ia') }}
+                - {{ $ticket->author->name }}
             </p>
             <h4 class="label label-info news">
                 {{ count($ticket->voters) }} votos
