@@ -5,9 +5,11 @@ namespace TeachMe\Entities;
 class Ticket extends Entity
 {
 
+    protected $fillable = ['title', 'status'];
+
     public function author()
     {
-        return $this->belongsTo(User::getClass());
+        return $this->belongsTo(User::getClass(), 'user_id');
     }
 
     public function comments()
