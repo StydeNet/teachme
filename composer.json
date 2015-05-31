@@ -19,7 +19,8 @@
 		],
 		"psr-4": {
 			"TeachMe\\": "app/"
-		}
+		},
+        "files": ["app/helpers.php"]
 	},
 	"autoload-dev": {
 		"classmap": [

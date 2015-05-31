@@ -39,7 +39,25 @@ class User extends Entity implements AuthenticatableContract, CanResetPasswordCo
 
     public function voted()
     {
-        return $this->belongsToMany(Ticket::getClass(), 'ticket_votes');
+        return $this->belongsToMany(Ticket::getClass(), 'ticket_votes')->withTimestamps();
+    }
+
+    public function hasVoted(Ticket $ticket)
+    {
+        return $this->voted()->where('ticket_id', $ticket->id)->count();
+    }
+
+    public function vote(Ticket $ticket)
+    {
+        if ($this->hasVoted($ticket)) return false;
+
+        $this->voted()->attach($ticket);
+        return true;
+    }
+
+    public function unvote(Ticket $ticket)
+    {
+        $this->voted()->detach($ticket);
     }
 
 }
