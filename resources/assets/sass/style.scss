@@ -41,14 +41,20 @@ h3{
 }
 
 .navbar.navbar-default{
-  background: #fff;
+  background: #434343;
   .navbar-nav{
        a{
           @include transition();
+          color: #ccc;
+          @include box-shadow(inset 0px 0px 0px #989898);
+          &:hover{
+            color : #fff;
+            @include box-shadow(inset 0px -4px 0px #989898);
+          }
        }
       .active a{
-         background: #fff;
-         @include box-shadow(inset 0px -4px 0px #e9e9e9);
+         background: none;
+         @include box-shadow(inset 0px -4px 0px #c8c8c8);
       }
   }
   .collapse.navbar-collapse{
@@ -63,13 +69,15 @@ h3{
 
 .navbar-header{
     .navbar-brand{
-       width : 160px;
-       height : 50px;
-       padding : 0;
-       text-indent: -9999px;
-       background : url("../img/laravel_logo.png") no-repeat;
-       background-size: auto 50px;
-       -webkit-background-size: auto 50px;
+        background-image: url("../img/logo.png");
+        text-indent: -9999px;
+        background-repeat: no-repeat;
+        background-size: 160px;
+        width: 160px;
+        height: 30px;
+        display: inline-block;
+        vertical-align: middle;
+        margin: 9px 20px 0 0;
     }
 }
 
