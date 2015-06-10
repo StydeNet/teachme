@@ -1,0 +1,15 @@
+/* Notifications */
+#notifications {
+  z-index: 9999;
+  position: fixed;
+  top: 50px;
+  left: 50%;
+  width: 500px;
+  margin-left: -250px; }
+
+/* Notification Element */
+#notifications > div {
+  position: relative;
+  margin: 5px 0px;
+  opacity: 0.9;
+  filter: alpha(opacity=90); }
