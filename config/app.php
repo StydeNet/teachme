@@ -150,6 +150,7 @@ return [
 		'TeachMe\Providers\EventServiceProvider',
 		'TeachMe\Providers\RouteServiceProvider',
         'TeachMe\Providers\HtmlServiceProvider',
+        'TeachMe\Providers\ViewServiceProvider',
 
 	],
 
