@@ -102,6 +102,10 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'title'   => 'Título',
+        'comment' => 'Comentarios',
+        'link'    => 'Enlace'
+    ],
 
 ];

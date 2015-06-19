@@ -135,6 +135,7 @@ return [
 		'Illuminate\Translation\TranslationServiceProvider',
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
+        'Barryvdh\Debugbar\ServiceProvider',
 
         /**
          * Vendor Service Providers...
@@ -149,6 +150,7 @@ return [
 		'TeachMe\Providers\EventServiceProvider',
 		'TeachMe\Providers\RouteServiceProvider',
         'TeachMe\Providers\HtmlServiceProvider',
+        'TeachMe\Providers\ViewServiceProvider',
 
 	],
 
@@ -200,6 +202,8 @@ return [
 
         'Form' => 'Collective\Html\FormFacade',
         'Html' => 'Collective\Html\HtmlFacade',
+
+        'Debugbar' => 'Barryvdh\Debugbar\Facade',
 
 	],
 

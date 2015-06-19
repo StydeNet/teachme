@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,6 +20,7 @@
     <![endif]-->
 </head>
 <body>
+<div id="notifications"></div>
 <nav class="navbar navbar-default">
     <div class="container">
         <div class="row">
@@ -33,21 +33,14 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="http://duilio.me" target="_blank">duilio.me</a>
+                    <a class="navbar-brand" href="https://styde.net" target="_blank">Styde.net</a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
                     {!! Html::menu('teachme.menu') !!}
 
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Duilio Palacios <span class="caret"></span></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="http://teachme.dev/auth/logout">Logout</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                    @include('layout/login')
                 </div>
             </div>
         </div>
@@ -59,5 +52,7 @@
 <!-- Scripts -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script src="{{ asset('assets/js/app.js') }}"></script>
+<script src="{{ asset('assets/js/alert.js') }}"></script>
 </body>
 </html>
