@@ -5,9 +5,9 @@
 	"license": "MIT",
 	"type": "project",
 	"require": {
-		"laravel/framework": "5.0.*",
+		"laravel/framework": "5.1.*",
 		"fzaninotto/faker": "1.5.*@dev",
-		"laravelcollective/html": "~5.0",
+		"laravelcollective/html": "~5.1",
 		"barryvdh/laravel-debugbar": "^2.0"
 	},
 	"require-dev": {
