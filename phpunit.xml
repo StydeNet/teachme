@@ -19,5 +19,6 @@
         <env name="CACHE_DRIVER" value="array"/>
         <env name="SESSION_DRIVER" value="array"/>
         <env name="QUEUE_DRIVER" value="sync"/>
+        <env name="DATABASE_DEFAULT" value="mysql_tests"/>
     </php>
 </phpunit>
