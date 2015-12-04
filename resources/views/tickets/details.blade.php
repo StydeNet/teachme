@@ -10,6 +10,14 @@
                 @include('tickets/partials/status', compact('ticket'))
             </h2>
 
+            @if($ticket->link)
+                <p>
+                    <a href="{{ $ticket->link }}" target="_blank" rel="nofollow" class="btn btn-info">
+                        Ver recurso
+                    </a>
+                </p>
+            @endif
+
             @if (Session::has('success'))
                 <div class="alert alert-success">
                     {{ Session::get('success') }}
