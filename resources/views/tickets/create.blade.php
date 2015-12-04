@@ -16,6 +16,7 @@
                                 'placeholder' => 'Describe brevemente de qué quieres que se trate el tutorial'
                             ])
                         !!}
+                        {!! Form::text('link') !!}
                     </div>
                     <p>
                         <button type="submit" class="btn btn-primary">
