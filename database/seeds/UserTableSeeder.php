@@ -1,9 +1,10 @@
 <?php
 
 use Faker\Generator;
+use Styde\Seeder\Seeder;
 use TeachMe\Entities\User;
 
-class UserTableSeeder extends BaseSeeder
+class UserTableSeeder extends Seeder
 {
     public function getModel()
     {

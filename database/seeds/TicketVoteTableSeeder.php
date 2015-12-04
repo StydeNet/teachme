@@ -1,9 +1,10 @@
 <?php
 
 
+use Styde\Seeder\Seeder;
 use TeachMe\Entities\TicketVote;
 
-class TicketVoteTableSeeder extends BaseSeeder
+class TicketVoteTableSeeder extends Seeder
 {
     protected $total = 250;
 
@@ -15,8 +16,8 @@ class TicketVoteTableSeeder extends BaseSeeder
     public function getDummyData(\Faker\Generator $faker, array $customValues = array())
     {
         return [
-            'user_id'   => $this->getRandom('User')->id,
-            'ticket_id' => $this->getRandom('Ticket')->id,
+            'user_id'   => $this->random('User')->id,
+            'ticket_id' => $this->random('Ticket')->id,
         ];
     }
 }
