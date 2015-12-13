@@ -17,6 +17,7 @@ class UserTableSeeder extends Seeder
             'name' => $faker->name,
             'email' => $faker->email,
             'password'  => bcrypt('secret'),
+            'role' => 'user'
         ];
     }
 
@@ -32,6 +33,7 @@ class UserTableSeeder extends Seeder
             'name' => 'Duilio Palacios',
             'email' => 'i@duilio.me',
             'password' => bcrypt('admin'),
+            'role' => 'admin'
         ]);
     }
 }
