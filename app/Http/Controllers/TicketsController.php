@@ -70,6 +70,8 @@ class TicketsController extends Controller {
     {
         $ticket = $this->ticketRepository->findOrFail($ticketId);
 
+        $this->authorize('selectResource', $ticket);
+
         $ticket->assignResource($commentId);
 
         return Redirect::back();
