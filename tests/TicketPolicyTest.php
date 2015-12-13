@@ -3,8 +3,11 @@
 use Illuminate\Support\Facades\Gate;
 use TeachMe\Policies\TicketPolicy;
 
+use Illuminate\Foundation\Testing\DatabaseTransactions;
+
 class TicketPolicyTest extends TestCase
 {
+    use DatabaseTransactions;
 
     public function test_author_can_select_resource()
     {
@@ -85,7 +88,7 @@ class TicketPolicyTest extends TestCase
             'id'   => $ticket->id,
             'link' => 'https://twitter.com/StydeNet'
         ]);
-
+        
         $this->seeInDatabase('ticket_comments', [
             'id'       => $comment1->id,
             'selected' => false,
