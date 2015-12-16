@@ -29,6 +29,10 @@ Route::get('/solicitud/{id}', [
     'as'   => 'tickets.details',
     'uses' => 'TicketsController@details'
 ]);
+Route::post('/solicitud/{id}', [
+    'as'   => 'tickets.details',
+    'uses' => 'TicketsController@close'
+]);
 Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',

@@ -37,4 +37,44 @@ class ResourceTest extends TestCase {
             ->seeLink('Ver recurso', $this->link);
 	}
 
+	public function test_select_resource()
+	{
+        // Having
+		$user = seed('User');
+
+		$ticket = seed('Ticket',[
+			'title'   => $this->title,
+			'user_id' => $user->id,
+			'status'  => 'open'
+		]);
+
+
+		$comment = seed('TicketComment',[
+			'ticket_id' => $ticket->id,
+			'link'      => $this->link,
+ 		]);
+
+        // When
+        $this->actingAs($user)
+            ->visit(route('tickets.details', $ticket))
+            ->press('Seleccionar tutorial');
+
+        // Then
+        $this->seeInDatabase('tickets',[
+            'id' => $ticket->id,
+            'status' => 'closed',
+            'link' => $this->link,
+        ]);
+
+
+        $this->seeInDatabase('ticket_comments', [
+            'id' => $comment->id,
+            'selected' => true
+        ]);
+
+        $this->seePageIs(route('tickets.details', $ticket));
+
+        $this->seeLink('Ver recurso', $this->link);
+	}
+
 }

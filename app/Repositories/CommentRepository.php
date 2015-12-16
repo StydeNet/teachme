@@ -20,4 +20,13 @@ class CommentRepository extends BaseRepository {
         $ticket->comments()->save($comment);
     }
 
+    public function selected($id)
+    {
+        $comment = $this->findOrFail($id);
+
+        $comment->selected = true;
+
+        return $comment->save();
+    }
+
 }

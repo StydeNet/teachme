@@ -81,6 +81,7 @@
                         <a href="{{ $comment->link }}" rel="nofollow" target="_blank">
                             {{ $comment->link }}
                         </a>
+                            @include('tickets.partials.select-tutorial')
                     </p>
                 @endif
                 <p class="date-t">

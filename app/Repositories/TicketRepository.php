@@ -52,4 +52,16 @@ class TicketRepository extends BaseRepository {
         ]);
     }
 
+    public function closeTicket($id, $link)
+    {
+        $ticket = $this->findOrFail($id);
+
+        $ticket->status = 'closed';
+        $ticket->link = $link;
+
+        $ticket->save();
+
+        return $ticket;
+    }
+
 }

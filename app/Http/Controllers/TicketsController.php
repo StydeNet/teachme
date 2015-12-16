@@ -4,15 +4,21 @@ use Illuminate\Auth\Guard;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
 
+use TeachMe\Repositories\CommentRepository;
 use TeachMe\Repositories\TicketRepository;
 
 class TicketsController extends Controller {
 
     private $ticketRepository;
+    private $commentRepository;
 
-    public function __construct(TicketRepository $ticketRepository)
+    public function __construct(
+        TicketRepository $ticketRepository,
+        CommentRepository $commentRepository
+    )
     {
         $this->ticketRepository = $ticketRepository;
+        $this->commentRepository = $commentRepository;
     }
 
 	public function latest()
@@ -62,6 +68,18 @@ class TicketsController extends Controller {
             $request->get('title'),
             $request->get('link')
         );
+
+        return Redirect::route('tickets.details', $ticket->id);
+    }
+
+    public function close(Request $reques, $id)
+    {
+        $link = $reques->get('link');
+        $comment_id = $reques->get('comment_id');
+
+        $ticket = $this->ticketRepository->closeTicket($id, $link);
+
+        $comment = $this->commentRepository->selected($comment_id);
 
         return Redirect::route('tickets.details', $ticket->id);
     }
